@@ -1,4 +1,10 @@
-<<<<<<< HEAD
+
+Ìí¼ÓÈ¨ÏÞ£º
+<uses-permission android:name="android.permission.CAMERA"/>
+<uses-feature android:name="android.hardware.camera" android:required="false"/>
+
+
+
 public class MainActivity extends ActionBarActivity {
 
     @InjectView(R.id.button1)
@@ -131,6 +137,4 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-=======
-# EasyCamera
->>>>>>> 25ccbf3810892e65d2676f53b547bdfffb1dbcc6
+ 
