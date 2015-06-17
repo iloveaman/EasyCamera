@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class MainActivity extends ActionBarActivity {
 
     @InjectView(R.id.button1)
@@ -130,3 +131,6 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+=======
+# EasyCamera
+>>>>>>> 25ccbf3810892e65d2676f53b547bdfffb1dbcc6
