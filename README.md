@@ -1,7 +1,7 @@
 
 лМ╪сх╗очё╨
-<uses-permission android:name="android.permission.CAMERA"/>
-<uses-feature android:name="android.hardware.camera" android:required="false"/>
+<uses-permission android:name="android.permission.CAMERA"/></br>
+<uses-feature android:name="android.hardware.camera" android:required="false"/></br>
 
 
 
