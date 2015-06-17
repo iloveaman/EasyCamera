@@ -1,8 +1,8 @@
 EasyCamera
 ==========
-添加权限：
-&lt;uses-permission android:name="android.permission.CAMERA"/&gt;
-&lt;uses-feature android:name="android.hardware.camera" android:required="false"&gt;
+添加权限：</br>
+&lt;uses-permission android:name="android.permission.CAMERA"/&gt;</br>
+&lt;uses-feature android:name="android.hardware.camera" android:required="false"&gt;</br>
 
 ```java
 
