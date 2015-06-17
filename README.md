@@ -1,9 +1,10 @@
-
-Ìí¼ÓÈ¨ÏŞ£º
+EasyCamera
+==========
+æ·»åŠ æƒé™ï¼š
 <uses-permission android:name="android.permission.CAMERA"/></br>
 <uses-feature android:name="android.hardware.camera" android:required="false"/></br>
 
-
+```java
 
 public class MainActivity extends ActionBarActivity {
 
@@ -21,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
 
 
     /**
-     * ÅĞ¶ÏÊÇ·ñÔÚÔ¤ÀÀ×´Ì¬
+     * åˆ¤æ–­æ˜¯å¦åœ¨é¢„è§ˆçŠ¶æ€
      */
     private boolean previewIsRunning = false;
 
@@ -34,15 +35,15 @@ public class MainActivity extends ActionBarActivity {
         EasyCamera.PictureCallback mPictureCallback = new EasyCamera.PictureCallback() {
             @Override
             public void onPictureTaken(byte[] data, EasyCamera.CameraActions actions) {
-                // Í£Ö¹Ô¤ÀÀ
+                // åœæ­¢é¢„è§ˆ
                 mEasyCamera.stopPreview();
                 try {
-                    // ÑÓÊ±1000s£¬¿´µÄ¸ü¼ÓÇå³ş
+                    // å»¶æ—¶1000sï¼Œçœ‹çš„æ›´åŠ æ¸…æ¥š
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                // ´æ´¢Í¼Æ¬µÄ²Ù×÷
+                // å­˜å‚¨å›¾ç‰‡çš„æ“ä½œ
                 FileOutputStream fos = null;
                 try {
                     Log.d("TAG", getExternalFilesDir(Environment.DIRECTORY_PICTURES) + File.separator + "abc.jpg");
@@ -55,7 +56,7 @@ public class MainActivity extends ActionBarActivity {
                     e.printStackTrace();
                 }
 
-                // ¿ªÆôÔ¤ÀÀ
+                // å¼€å¯é¢„è§ˆ
                 EasyCamera.Callbacks.create().withRestartPreviewAfterCallbacks(true);
                 try {
                     mEasyCamera.startPreview(mSurfaceHolder);
@@ -64,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
                 }
             }
         };
-        // ÅÄÉãÕÕÆ¬µÄ²Ù×÷
+        // æ‹æ‘„ç…§ç‰‡çš„æ“ä½œ
         mCameraActions.takePicture(EasyCamera.Callbacks.create().withJpegCallback(mPictureCallback));
     }
 
@@ -78,11 +79,11 @@ public class MainActivity extends ActionBarActivity {
         mSurfaceHolder.addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                //¡¡¿ªÆôºóÖÃÉãÏñÍ·
+                //ã€€å¼€å¯åç½®æ‘„åƒå¤´
                 mEasyCamera = DefaultEasyCamera.open(Camera.CameraInfo.CAMERA_FACING_BACK);
-                // ÉèÖÃÏà»ú·­×ª½Ç¶È
+                // è®¾ç½®ç›¸æœºç¿»è½¬è§’åº¦
                 //  mEasyCamera.setDisplayOrientation(90);
-                //¡¡Õı³£ÏÔÊ¾Ïà»úÔ¤ÀÀ
+                //ã€€æ­£å¸¸æ˜¾ç¤ºç›¸æœºé¢„è§ˆ
                 WindowManager manager = (WindowManager) MainActivity.this.getSystemService(Context.WINDOW_SERVICE);
                 mEasyCamera.alignCameraAndDisplayOrientation(manager);
             }
@@ -91,7 +92,7 @@ public class MainActivity extends ActionBarActivity {
             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
                 if (!previewIsRunning && mEasyCamera != null) {
                     try {
-                        // ¿ªÆôÔ¤ÀÀ
+                        // å¼€å¯é¢„è§ˆ
                         mCameraActions = mEasyCamera.startPreview(holder);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -102,8 +103,8 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
-                Log.d("TAG","surfaceDestroyedÍ£Ö¹²¢ÊÍ·Å");
-                // Í£Ö¹Ô¤ÀÀ²¢ÊÍ·Å
+                Log.d("TAG","surfaceDestroyedåœæ­¢å¹¶é‡Šæ”¾");
+                // åœæ­¢é¢„è§ˆå¹¶é‡Šæ”¾
                 mEasyCamera.stopPreview();
                 //mEasyCamera.release();
                 mEasyCamera.close();
@@ -137,4 +138,4 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 }
- 
+ ```
